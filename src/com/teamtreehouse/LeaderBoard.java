@@ -20,7 +20,11 @@ public class LeaderBoard {
     public void display() {
         System.out.println("---------------");
         System.out.println("Leaders Board:");
-        highScores.forEach((k,v)-> System.out.printf("%s scored %d%n", k,v));
+        //highScores.forEach((k,v)-> System.out.printf("%s scored %d%n", k,v));
+        highScores.entrySet().stream()
+                .sorted(Map.Entry.comparingByValue())
+                .limit(5)
+                .forEach((e)-> System.out.printf("%s scored: %d%n", e.getKey(),e.getValue()));
         System.out.println("--------------");
     }
 }
