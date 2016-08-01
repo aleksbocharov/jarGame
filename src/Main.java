@@ -15,14 +15,7 @@ public class Main {
         String itemName = scan.next();
         System.out.print("Enter number of items: ");
         int maxItemsNum = scan.nextInt();
-        return new Jar(itemName, maxItemsNum);
-    }
-
-    private static void promptPlayer(Jar jar){
-        System.out.printf("%n%nPlayer%n---------%n");
-        System.out.printf("Guess how many %s in the jar. " +
-                        "Your guess should be between %d and %d.%n",
-                jar.getItemName(), 1, jar.getMaxQuantity());
+        return new Jar(itemName, maxItemsNum).generateQuantity();
     }
 
     public static void main(String[] args) {
@@ -34,7 +27,6 @@ public class Main {
             if(!lb.getHighScores().isEmpty()) lb.display();
             displayAdminBanner();
             Jar jar = newJar(scan);
-            promptPlayer(jar);
             Game game = new Game(jar);
             game.playGame();
             lb.addResult(game.getPlayerName(),game.getAttempts());

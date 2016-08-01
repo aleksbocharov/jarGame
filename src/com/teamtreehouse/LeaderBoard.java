@@ -3,9 +3,6 @@ package com.teamtreehouse;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by User on 30-Jul-16.
- */
 public class LeaderBoard {
     private Map<String,Integer> highScores = new HashMap<>();
 

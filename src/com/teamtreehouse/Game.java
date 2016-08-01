@@ -2,9 +2,6 @@ package com.teamtreehouse;
 
 import java.util.Scanner;
 
-/**
- * Created by User on 26-Jul-16.
- */
 public class Game {
     private Scanner scan = new Scanner(System.in);
     private Jar mJar;
@@ -25,12 +22,21 @@ public class Game {
     }
 
     public void playGame(){
-        System.out.print("Please, enter your name: ");
-        playerName = scan.next();
+
+        promptPlayer();
         while (!makeGuess()) {
             attempts++;
         }
         System.out.printf("Congrats you won! It took you %d attempts.%n", attempts);
+    }
+
+    private void promptPlayer(){
+        System.out.printf("%nPlayer%n---------%n");
+        System.out.print("Please, enter your name: ");
+        playerName = scan.next();
+        System.out.printf("%s, please guess how many %s in the jar. " +
+                        "Your guess should be between %d and %d.%n",
+                        playerName, mJar.getItemName(), 1, mJar.getMaxQuantity());
     }
 
     private boolean makeGuess(){
