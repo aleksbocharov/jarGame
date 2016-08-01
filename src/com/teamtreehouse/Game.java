@@ -5,38 +5,38 @@ import java.util.Scanner;
 public class Game {
     private Scanner scan = new Scanner(System.in);
     private Jar mJar;
-    private int attempts;
-    private String playerName;
+    private int mAttempts;
+    private String mPlayerName;
 
     public Game(Jar jar) {
         mJar = jar;
-        attempts = 1;
+        mAttempts = 1;
     }
 
     public int getAttempts() {
-        return attempts;
+        return mAttempts;
     }
 
     public String getPlayerName() {
-        return playerName;
+        return mPlayerName;
     }
 
     public void playGame(){
 
         promptPlayer();
         while (!makeGuess()) {
-            attempts++;
+            mAttempts++;
         }
-        System.out.printf("Congrats you won! It took you %d attempts.%n", attempts);
+        System.out.printf("Congrats you won! It took you %d mAttempts.%n", mAttempts);
     }
 
     private void promptPlayer(){
         System.out.printf("%nPlayer%n---------%n");
         System.out.print("Please, enter your name: ");
-        playerName = scan.next();
+        mPlayerName = scan.next();
         System.out.printf("%s, please guess how many %s in the jar. " +
                         "Your guess should be between %d and %d.%n",
-                        playerName, mJar.getItemName(), 1, mJar.getMaxQuantity());
+                mPlayerName, mJar.getItemName(), 1, mJar.getMaxQuantity());
     }
 
     private boolean makeGuess(){
